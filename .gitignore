@@ -1,0 +1,39 @@
+# Python (Backend)
+backend/__pycache__/
+backend/*.pyc
+backend/*.pyo
+backend/*.pyd
+backend/.env
+backend/*.log
+
+venv/
+
+# Vite/React (Frontend)
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+frontend/vite.config.js.timestamp-*
+
+# General
+*.DS_Store
+*.idea/
+*.vscode/
+*.swp
+*.swo
+*.log
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Cache and temporary files
+*.cache
+*.tmp
+*.bak
+*.backup
+

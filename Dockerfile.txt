@@ -1,0 +1,39 @@
+# Stage 1: Build frontend
+FROM node:22-slim AS frontend-build
+WORKDIR /app/frontend
+COPY frontend/package.json frontend/package-lock.json ./
+RUN npm ci
+COPY frontend ./
+RUN npm run build
+
+# Stage 2: Build backend and final image
+FROM python:3.12-slim
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    gcc \
+    python3-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install backend dependencies
+COPY backend/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy backend
+COPY backend ./backend
+
+# Copy frontend build from Stage 1
+COPY --from=frontend-build /app/frontend/dist ./frontend/dist
+
+# Install serve to host frontend
+RUN npm install -g serve
+
+# Expose ports (backend: 8000, frontend: 5173)
+EXPOSE 8000 5173
+
+# Copy .env file (ensure it exists in backend/)
+COPY backend/.env ./backend/.env
+
+# Start backend and frontend
+CMD ["sh", "-c", "cd backend && python main.py & serve -s ../frontend/dist -l 5173"]

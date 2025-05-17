@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Particle background effect */
+canvas#particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+/* Ensure header stays above content */
+header {
+  position: relative;
+  z-index: 10;
+}
+
+/* Masonry grid adjustments */
+.masonry-grid {
+  display: flex;
+  margin-left: -1rem; /* gutter */
+  width: auto;
+}
+
+.masonry-grid-column {
+  padding-left: 1rem; /* gutter */
+  background-clip: padding-box;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+}
