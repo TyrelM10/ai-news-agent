@@ -1,6 +1,6 @@
 <div align="center">
 
-![logo](https://via.placeholder.com/150?text=AI+News+Agent) <!-- Replace with your project logo -->
+![logo](/assets/logo.png) <!-- Replace with your project logo -->
 
 <h1 align="center"><strong>📰 AI News Agent</strong><h6 align="center">AI-powered news aggregation and summarization system</h6></h1>
 
@@ -79,7 +79,7 @@ The **AI News Agent** is an advanced **AI-powered web application** designed to 
 
 ## 🛡️ Technical Flow Chart <a name="technical-flowchart"></a>
 
-![Technical Flow Chart](https://via.placeholder.com/600x400?text=Technical+Flow+Chart) <!-- Replace with your flowchart -->
+![Technical Flow Chart](/assets/news-agent-architecture.png) <!-- Replace with your flowchart -->
 
 *Flowchart*: The system retrieves AI news via the News API, processes articles through a LangGraph workflow (fetch → summarize), and displays summarized content in a dynamic React frontend with a masonry grid layout.
 
